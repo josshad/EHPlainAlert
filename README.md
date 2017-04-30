@@ -34,23 +34,23 @@ Then run `pod install`.
 
 	#import <EHPlainAlert/EHPlainAlert.h>
 
-###Presenting notification
+### Presenting notification
 
 All messages can simply presented via static method call:
 
-	[EHPlainAlert showAlertWithTitle:@"Success" message:@"Something works!" type:ViewAlertSuccess];
+	[EHPlainAlert showAlertWithTitle:@"Success" message:@"Something works!" type:EHPlainAlertSuccess];
 
 Messages can be displayed from any location in app, even not associated with UI. 
 
     [[NetHelper sharedInstance] postRequestWithURLString:URL data:data withSuccess:^(id responseObject) {
-            [EHPlainAlert showAlertWithTitle:@"Success" message:@"Data successfully uploaded" type:ViewAlertSuccess];
+            [EHPlainAlert showAlertWithTitle:@"Success" message:@"Data successfully uploaded" type:EHPlainAlertSuccess];
         } failure:^(NSError *error)
         {
             [EHPlainAlert showError:error];
         }];
 
 
-###Presenting error notification
+### Presenting error notification
 
 For simplifying error handling you can use:
 
@@ -59,7 +59,7 @@ For simplifying error handling you can use:
 		[EHPlainAlert showError:error];
 	}
 
-###Hiding Messages
+### Hiding Messages
 
 Notifications will hidden automatically after 4 seconds. 
 
@@ -68,23 +68,23 @@ To change default delay use static method:
 
 Also you can just tap on message to hide it.
 
-###On Tap Actions
+### On Tap Actions
 
 You can change the default behavior for tapping on the notification:
 
-    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Tap for information" type:ViewAlertInfo];
+    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Tap for information" type:EHPlainAlertInfo];
     ehAlert.action = ^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/josshad/EHPlainAlert"]];
     };
     [ehAlert show];
 
-###Customization
+### Customization
 
-####Fonts:
+#### Fonts:
 
 Change font of one alert
 
-	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Info" message:@"This is info message" type:ViewAlertInfo];
+	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Info" message:@"This is info message" type:EHPlainAlertInfo];
     ehAlert.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
     ehAlert.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
     [ehAlert show];
@@ -94,43 +94,43 @@ Change fonts for alert type
     [EHPlainAlert updateTitleFont:[UIFont fontWithName:@"TrebuchetMS" size:18]];
     [EHPlainAlert updateSubTitleFont:[UIFont fontWithName:@"TrebuchetMS" size:10]];
 
-####Colors:
+#### Colors:
 
 Change background color of one alert
 
-	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:ViewAlertInfo];
+	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:EHPlainAlertInfo];
     ehAlert.messageColor = [UIColor blueColor];
     [ehAlert show];
 
 Change color for alert type
 
-    [EHPlainAlert updateAlertColor:[UIColor colorWithWhite:0 alpha:0.5] forType:ViewAlertPanic];
+    [EHPlainAlert updateAlertColor:[UIColor colorWithWhite:0 alpha:0.5] forType:EHPlainAlertPanic];
 
-####Appearance
+#### Appearance
 
     [EHPlainAlert updateAlertPosition:ViewAlertPositionTop];
 
-####Icons:
+#### Icons:
 
 Change icon of one alert
 
-    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:ViewAlertInfo];
+    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:EHPlainAlertInfo];
     ehAlert.iconImage = image;
     [ehAlert show];
 
 Change icon for alert type
 
-    [EHPlainAlert updateAlertIcon:image forType:ViewAlertInfo]; 
+    [EHPlainAlert updateAlertIcon:image forType:EHPlainAlertInfo]; 
 
-####Number of messages
+#### Number of messages
     
     [EHPlainAlert updateNumberOfAlerts:4];
 
-####Display time
+#### Display time
 
     [EHPlainAlert updateHidingDelay:2.5f];
 
-##Author
+## Author
 Danila Gusev
 
 <a href="mailto:jos.shad@gmail.com">jos.shad@gmail.com</a>
