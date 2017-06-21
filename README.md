@@ -38,12 +38,12 @@ Then run `pod install`.
 
 All messages can simply presented via static method call:
 
-	[EHPlainAlert showAlertWithTitle:@"Success" message:@"Something works!" type:ViewAlertSuccess];
+	[EHPlainAlert showAlertWithTitle:@"Success" message:@"Something works!" type:EHPlainAlertSuccess];
 
 Messages can be displayed from any location in app, even not associated with UI. 
 
     [[NetHelper sharedInstance] postRequestWithURLString:URL data:data withSuccess:^(id responseObject) {
-            [EHPlainAlert showAlertWithTitle:@"Success" message:@"Data successfully uploaded" type:ViewAlertSuccess];
+            [EHPlainAlert showAlertWithTitle:@"Success" message:@"Data successfully uploaded" type:EHPlainAlertSuccess];
         } failure:^(NSError *error)
         {
             [EHPlainAlert showError:error];
@@ -72,7 +72,7 @@ Also you can just tap on message to hide it.
 
 You can change the default behavior for tapping on the notification:
 
-    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Tap for information" type:ViewAlertInfo];
+    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Tap for information" type:EHPlainAlertInfo];
     ehAlert.action = ^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/josshad/EHPlainAlert"]];
     };
@@ -84,7 +84,7 @@ You can change the default behavior for tapping on the notification:
 
 Change font of one alert
 
-	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Info" message:@"This is info message" type:ViewAlertInfo];
+	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Info" message:@"This is info message" type:EHPlainAlertInfo];
     ehAlert.titleFont = [UIFont fontWithName:@"TrebuchetMS" size:15];
     ehAlert.subTitleFont = [UIFont fontWithName:@"TrebuchetMS-Italic" size:12];
     [ehAlert show];
@@ -98,13 +98,13 @@ Change fonts for alert type
 
 Change background color of one alert
 
-	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:ViewAlertInfo];
+	EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:EHPlainAlertInfo];
     ehAlert.messageColor = [UIColor blueColor];
     [ehAlert show];
 
 Change color for alert type
 
-    [EHPlainAlert updateAlertColor:[UIColor colorWithWhite:0 alpha:0.5] forType:ViewAlertPanic];
+    [EHPlainAlert updateAlertColor:[UIColor colorWithWhite:0 alpha:0.5] forType:EHPlainAlertPanic];
 
 #### Appearance
 
@@ -114,13 +114,13 @@ Change color for alert type
 
 Change icon of one alert
 
-    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:ViewAlertInfo];
+    EHPlainAlert * ehAlert = [[EHPlainAlert alloc] initWithTitle:@"Hmm..." message:@"Blue color alert" type:EHPlainAlertInfo];
     ehAlert.iconImage = image;
     [ehAlert show];
 
 Change icon for alert type
 
-    [EHPlainAlert updateAlertIcon:image forType:ViewAlertInfo]; 
+    [EHPlainAlert updateAlertIcon:image forType:EHPlainAlertInfo]; 
 
 #### Number of messages
     
